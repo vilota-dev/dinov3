@@ -1,0 +1,40 @@
+{
+  "os": "Linux-6.17.0-23-generic-x86_64-with-glibc2.39",
+  "python": "CPython 3.11.15",
+  "startedAt": "2026-05-20T10:27:04.641806Z",
+  "program": "/home/vilota/mingjie/dinov3/scripts/dinov3_blur_detection.ipynb",
+  "codePath": "/home/vilota/mingjie/dinov3/scripts/dinov3_blur_detection.ipynb",
+  "codePathLocal": "dinov3_blur_detection.ipynb",
+  "git": {
+    "remote": "https://github.com/vilota-dev/dinov3.git",
+    "commit": "d42034ac05c595af4590609ba0e0d121f7bec321"
+  },
+  "email": "mhu005@e.ntu.edu.sg",
+  "root": "/home/vilota/mingjie/dinov3/scripts",
+  "host": "vilota",
+  "executable": "/home/vilota/anaconda3/envs/dinov3/bin/python",
+  "cpu_count": 8,
+  "cpu_count_logical": 16,
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "1142152196096",
+      "used": "242216878080"
+    }
+  },
+  "memory": {
+    "total": "32700211200"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 5060 Ti",
+      "memoryTotal": "17103323136",
+      "cudaCores": 4608,
+      "architecture": "Blackwell",
+      "uuid": "GPU-a473b420-d023-c5fd-caf7-5579fe24290d"
+    }
+  ],
+  "cudaVersion": "13.2",
+  "writerId": "pzg9i48satigiu5hn4h2ua0defebn7gc"
+}
