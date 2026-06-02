@@ -101,3 +101,66 @@ Traceback (most recent call last):
   File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/mailbox/mailbox.py", line 89, in require_response
     raise MailboxClosedError()
 wandb.sdk.mailbox.mailbox.MailboxClosedError
+2026-06-02 17:47:09,731 INFO    MainThread:12335 [jupyter.py:save_ipynb():362] [no run ID] not saving jupyter notebook
+2026-06-02 17:47:09,731 INFO    MainThread:12335 [wandb_init.py:_pre_run_cell_hook():601] [no run ID] pausing backend
+2026-06-02 17:47:09,767 INFO    MainThread:12335 [wandb_init.py:_post_run_cell_hook():612] [no run ID] resuming backend
+2026-06-02 17:47:09,802 INFO    MainThread:12335 [jupyter.py:save_ipynb():362] [no run ID] not saving jupyter notebook
+2026-06-02 17:47:09,802 INFO    MainThread:12335 [wandb_init.py:_pre_run_cell_hook():601] [no run ID] pausing backend
+2026-06-02 17:47:10,127 INFO    MainThread:12335 [wandb_run.py:_finish():2271] finishing run mingjiehu5-nanyang-technological-university-singapore/dinov3-blur-detection/jjobfh69
+2026-06-02 17:47:10,128 ERROR   MainThread:12335 [wandb_init.py:init():1611] [no run ID] error in wandb.init()
+Traceback (most recent call last):
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_init.py", line 1596, in init
+    run = wi.init(run_settings, run_config, run_printer)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_init.py", line 872, in init
+    self._wl.finish_all_active_runs()
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_setup.py", line 167, in finish_all_active_runs
+    run.finish()
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 329, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 374, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 2253, in finish
+    self._finish(exit_code)
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 329, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 2272, in _finish
+    with telemetry.context(run=self) as tel:
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/lib/telemetry.py", line 45, in __exit__
+    self._run._telemetry_callback(self._obj)
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 680, in _telemetry_callback
+    self._telemetry_flush()
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 693, in _telemetry_flush
+    self._interface._publish_telemetry(self._telemetry_obj)
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/interface/interface_shared.py", line 116, in _publish_telemetry
+    self._publish(rec)
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/interface/interface_sock.py", line 46, in _publish
+    self._asyncer.run(lambda: self._client.publish(request))
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/lib/asyncio_manager.py", line 137, in run
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/lib/asyncio_manager.py", line 223, in _wrap
+    return await fn()
+           ^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 42, in publish
+    await self._send_server_request(request)
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 75, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 84, in _send_server_request
+    await self._drain_writer()
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 92, in _drain_writer
+    await self._writer.drain()
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/asyncio/streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/asyncio/streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-06-02 17:47:10,326 INFO    MainThread:12335 [wandb_init.py:_post_run_cell_hook():612] [no run ID] resuming backend

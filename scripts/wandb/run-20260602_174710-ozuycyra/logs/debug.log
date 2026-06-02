@@ -1,0 +1,5 @@
+2026-06-02 17:47:10,126 INFO    MainThread:12335 [wandb_init.py:setup_run_log_directory():723] Logging user logs to /home/vilota/mingjie/dinov3/scripts/wandb/run-20260602_174710-ozuycyra/logs/debug.log
+2026-06-02 17:47:10,126 INFO    MainThread:12335 [wandb_init.py:setup_run_log_directory():724] Logging internal logs to /home/vilota/mingjie/dinov3/scripts/wandb/run-20260602_174710-ozuycyra/logs/debug-internal.log
+2026-06-02 17:47:10,126 INFO    MainThread:12335 [wandb_init.py:init():851] calling init triggers
+2026-06-02 17:47:10,127 INFO    MainThread:12335 [wandb_init.py:init():856] wandb.init called with sweep_config: {}
+config: {'architecture': 'dinov3_vith16plus', '_wandb': {}}
