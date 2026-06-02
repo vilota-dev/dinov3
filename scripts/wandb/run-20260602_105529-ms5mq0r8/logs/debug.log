@@ -1,0 +1,120 @@
+2026-06-02 10:55:29,070 INFO    MainThread:65425 [wandb_setup.py:_flush():81] Current SDK version is 0.27.0
+2026-06-02 10:55:29,070 INFO    MainThread:65425 [wandb_setup.py:_flush():81] Configure stats pid to 65425
+2026-06-02 10:55:29,070 INFO    MainThread:65425 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-06-02 10:55:29,070 INFO    MainThread:65425 [wandb_init.py:setup_run_log_directory():723] Logging user logs to /home/vilota/mingjie/dinov3/scripts/wandb/run-20260602_105529-ms5mq0r8/logs/debug.log
+2026-06-02 10:55:29,070 INFO    MainThread:65425 [wandb_init.py:setup_run_log_directory():724] Logging internal logs to /home/vilota/mingjie/dinov3/scripts/wandb/run-20260602_105529-ms5mq0r8/logs/debug-internal.log
+2026-06-02 10:55:29,070 INFO    MainThread:65425 [wandb_init.py:monkeypatch_ipython():642] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x7b5c064160d0>
+2026-06-02 10:55:29,070 INFO    MainThread:65425 [wandb_init.py:init():851] calling init triggers
+2026-06-02 10:55:29,070 INFO    MainThread:65425 [wandb_init.py:init():856] wandb.init called with sweep_config: {}
+config: {'architecture': 'dinov3_vith16plus', '_wandb': {}}
+2026-06-02 10:55:29,070 INFO    MainThread:65425 [wandb_init.py:init():899] starting backend
+2026-06-02 10:55:29,279 INFO    MainThread:65425 [wandb_init.py:init():914] sending inform_init request
+2026-06-02 10:55:29,726 INFO    MainThread:65425 [wandb_init.py:init():919] backend started and connected
+2026-06-02 10:55:29,733 INFO    MainThread:65425 [wandb_run.py:_label_probe_notebook():1262] probe notebook
+2026-06-02 10:55:29,733 INFO    MainThread:65425 [wandb_init.py:init():989] updated telemetry
+2026-06-02 10:55:29,756 INFO    MainThread:65425 [wandb_init.py:init():1012] communicating run to backend with 90.0 second timeout
+2026-06-02 10:55:30,211 INFO    MainThread:65425 [wandb_init.py:init():1057] starting run threads in backend
+2026-06-02 10:55:30,249 INFO    MainThread:65425 [wandb_run.py:_console_start():2509] atexit reg
+2026-06-02 10:55:30,249 INFO    MainThread:65425 [wandb_run.py:_redirect():2359] redirect: wrap_raw
+2026-06-02 10:55:30,249 INFO    MainThread:65425 [wandb_run.py:_redirect():2428] Wrapping output streams.
+2026-06-02 10:55:30,249 INFO    MainThread:65425 [wandb_run.py:_redirect():2451] Redirects installed.
+2026-06-02 10:55:30,251 INFO    MainThread:65425 [wandb_init.py:init():1095] run started, returning control to user process
+2026-06-02 10:55:30,251 INFO    MainThread:65425 [wandb_init.py:_post_run_cell_hook():612] [no run ID] resuming backend
+2026-06-02 10:55:30,259 INFO    MainThread:65425 [jupyter.py:save_ipynb():362] [no run ID] not saving jupyter notebook
+2026-06-02 10:55:30,259 INFO    MainThread:65425 [wandb_init.py:_pre_run_cell_hook():601] [no run ID] pausing backend
+2026-06-02 10:55:30,261 INFO    MainThread:65425 [wandb_init.py:_post_run_cell_hook():612] [no run ID] resuming backend
+2026-06-02 10:55:30,265 INFO    MainThread:65425 [jupyter.py:save_ipynb():362] [no run ID] not saving jupyter notebook
+2026-06-02 10:55:30,265 INFO    MainThread:65425 [wandb_init.py:_pre_run_cell_hook():601] [no run ID] pausing backend
+2026-06-02 10:55:30,274 INFO    MainThread:65425 [wandb_init.py:_post_run_cell_hook():612] [no run ID] resuming backend
+2026-06-02 10:55:30,278 INFO    MainThread:65425 [jupyter.py:save_ipynb():362] [no run ID] not saving jupyter notebook
+2026-06-02 10:55:30,278 INFO    MainThread:65425 [wandb_init.py:_pre_run_cell_hook():601] [no run ID] pausing backend
+2026-06-02 10:55:30,279 INFO    MainThread:65425 [wandb_init.py:_post_run_cell_hook():612] [no run ID] resuming backend
+2026-06-02 10:55:30,284 INFO    MainThread:65425 [jupyter.py:save_ipynb():362] [no run ID] not saving jupyter notebook
+2026-06-02 10:55:30,284 INFO    MainThread:65425 [wandb_init.py:_pre_run_cell_hook():601] [no run ID] pausing backend
+2026-06-02 10:55:30,285 INFO    MainThread:65425 [wandb_init.py:_post_run_cell_hook():612] [no run ID] resuming backend
+2026-06-02 10:55:30,288 INFO    MainThread:65425 [jupyter.py:save_ipynb():362] [no run ID] not saving jupyter notebook
+2026-06-02 10:55:30,288 INFO    MainThread:65425 [wandb_init.py:_pre_run_cell_hook():601] [no run ID] pausing backend
+2026-06-02 10:55:30,288 INFO    MainThread:65425 [wandb_init.py:_post_run_cell_hook():612] [no run ID] resuming backend
+2026-06-02 10:55:30,293 INFO    MainThread:65425 [jupyter.py:save_ipynb():362] [no run ID] not saving jupyter notebook
+2026-06-02 10:55:30,293 INFO    MainThread:65425 [wandb_init.py:_pre_run_cell_hook():601] [no run ID] pausing backend
+2026-06-02 10:55:30,340 INFO    MainThread:65425 [wandb_init.py:_post_run_cell_hook():612] [no run ID] resuming backend
+2026-06-02 10:55:30,343 INFO    MainThread:65425 [jupyter.py:save_ipynb():362] [no run ID] not saving jupyter notebook
+2026-06-02 10:55:30,343 INFO    MainThread:65425 [wandb_init.py:_pre_run_cell_hook():601] [no run ID] pausing backend
+2026-06-02 10:55:30,344 INFO    MainThread:65425 [wandb_init.py:_post_run_cell_hook():612] [no run ID] resuming backend
+2026-06-02 10:55:30,348 INFO    MainThread:65425 [jupyter.py:save_ipynb():362] [no run ID] not saving jupyter notebook
+2026-06-02 10:55:30,348 INFO    MainThread:65425 [wandb_init.py:_pre_run_cell_hook():601] [no run ID] pausing backend
+2026-06-02 10:55:32,904 INFO    MainThread:65425 [wandb_init.py:_post_run_cell_hook():612] [no run ID] resuming backend
+2026-06-02 10:55:32,907 INFO    MainThread:65425 [jupyter.py:save_ipynb():362] [no run ID] not saving jupyter notebook
+2026-06-02 10:55:32,908 INFO    MainThread:65425 [wandb_init.py:_pre_run_cell_hook():601] [no run ID] pausing backend
+2026-06-02 10:55:32,908 INFO    MainThread:65425 [wandb_watch.py:_watch():69] Watching
+2026-06-02 10:55:33,662 INFO    MainThread:65425 [wandb_init.py:_post_run_cell_hook():612] [no run ID] resuming backend
+2026-06-02 10:56:49,803 INFO    MainThread:65425 [jupyter.py:save_ipynb():362] [no run ID] not saving jupyter notebook
+2026-06-02 10:56:49,803 INFO    MainThread:65425 [wandb_init.py:_pre_run_cell_hook():601] [no run ID] pausing backend
+2026-06-02 10:56:49,805 INFO    MainThread:65425 [wandb_init.py:_post_run_cell_hook():612] [no run ID] resuming backend
+2026-06-02 10:56:49,808 INFO    MainThread:65425 [jupyter.py:save_ipynb():362] [no run ID] not saving jupyter notebook
+2026-06-02 10:56:49,808 INFO    MainThread:65425 [wandb_init.py:_pre_run_cell_hook():601] [no run ID] pausing backend
+2026-06-02 10:56:50,114 INFO    MainThread:65425 [wandb_run.py:_finish():2271] finishing run mingjiehu5-nanyang-technological-university-singapore/dinov3-blur-detection/ms5mq0r8
+2026-06-02 10:56:50,138 INFO    MainThread:65425 [jupyter.py:save_history():435] not saving jupyter history
+2026-06-02 10:56:50,138 INFO    MainThread:65425 [jupyter.py:save_ipynb():362] not saving jupyter notebook
+2026-06-02 10:56:50,138 INFO    MainThread:65425 [wandb_init.py:_jupyter_teardown():627] cleaning up jupyter logic
+2026-06-02 10:56:50,138 INFO    MainThread:65425 [wandb_run.py:_atexit_cleanup():2476] got exitcode: 0
+2026-06-02 10:56:50,138 INFO    MainThread:65425 [wandb_run.py:_restore():2458] restore
+2026-06-02 10:56:50,138 INFO    MainThread:65425 [wandb_run.py:_restore():2464] restore done
+2026-06-02 10:56:57,835 WARNING MainThread:65425 [wandb_init.py:init():1605] [no run ID] interrupted
+Traceback (most recent call last):
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_init.py", line 1596, in init
+    run = wi.init(run_settings, run_config, run_printer)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_init.py", line 872, in init
+    self._wl.finish_all_active_runs()
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_setup.py", line 167, in finish_all_active_runs
+    run.finish()
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 329, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 374, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 2253, in finish
+    self._finish(exit_code)
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 329, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 2287, in _finish
+    self._atexit_cleanup(exit_code=exit_code)
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 2487, in _atexit_cleanup
+    self._on_finish()
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 2744, in _on_finish
+    result = wait_with_progress(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/mailbox/wait_with_progress.py", line 24, in wait_with_progress
+    return wait_all_with_progress(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/mailbox/wait_with_progress.py", line 78, in wait_all_with_progress
+    return asyncer.run(progress_loop_with_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/lib/asyncio_manager.py", line 137, in run
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/concurrent/futures/_base.py", line 451, in result
+    self._condition.wait(timeout)
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/threading.py", line 327, in wait
+    waiter.acquire()
+KeyboardInterrupt
+2026-06-02 10:56:57,836 ERROR   wandb-AsyncioManager-main:65425 [service_client.py:_forward_responses():119] Error reading server response.
+Traceback (most recent call last):
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 115, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 129, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/asyncio/streams.py", line 750, in readexactly
+    await self._wait_for_data('readexactly')
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/asyncio/streams.py", line 543, in _wait_for_data
+    await self._waiter
+  File "/home/vilota/anaconda3/envs/dinov3/lib/python3.11/asyncio/selector_events.py", line 999, in _read_ready__data_received
+    data = self._sock.recv(self.max_size)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+2026-06-02 10:56:57,855 INFO    wandb-AsyncioManager-main:65425 [mailbox.py:close():154] Closing mailbox, abandoning 2 handles.

@@ -1,0 +1,28 @@
+{
+  "os": "Linux-6.17.0-29-generic-x86_64-with-glibc2.39",
+  "python": "CPython 3.11.15",
+  "startedAt": "2026-06-02T02:52:46.762950Z",
+  "program": "/home/vilota/mingjie/dinov3/scripts/dinov3_blur_detection_trainer_v5.ipynb",
+  "codePath": "/home/vilota/mingjie/dinov3/scripts/dinov3_blur_detection_trainer_v5.ipynb",
+  "codePathLocal": "dinov3_blur_detection_trainer_v5.ipynb",
+  "git": {
+    "remote": "https://github.com/vilota-dev/dinov3.git",
+    "commit": "e647a39319a9d6cf03621f7cb88c1ce844997a0f"
+  },
+  "email": "mhu005@e.ntu.edu.sg",
+  "root": "/home/vilota/mingjie/dinov3/scripts",
+  "host": "vilota",
+  "executable": "/home/vilota/anaconda3/envs/dinov3/bin/python",
+  "cpu_count": 8,
+  "cpu_count_logical": 16,
+  "disk": {
+    "/": {
+      "total": "1142152196096",
+      "used": "361374371840"
+    }
+  },
+  "memory": {
+    "total": "32700198912"
+  },
+  "writerId": "3wc5s1uvvr3bdvryqbmco8xtzhqb387d"
+}

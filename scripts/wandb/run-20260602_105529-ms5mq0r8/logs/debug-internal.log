@@ -1,0 +1,23 @@
+{"time":"2026-06-02T10:55:29.28178659+08:00","level":"INFO","msg":"wandb-core"}
+{"time":"2026-06-02T10:55:29.28194332+08:00","level":"INFO","msg":"stream: starting","core version":"0.27.0"}
+{"time":"2026-06-02T10:55:29.725472748+08:00","level":"INFO","msg":"stream: created new stream","id":"ms5mq0r8"}
+{"time":"2026-06-02T10:55:29.725535448+08:00","level":"INFO","msg":"handler: started"}
+{"time":"2026-06-02T10:55:29.725651188+08:00","level":"INFO","msg":"stream: started"}
+{"time":"2026-06-02T10:55:29.725659988+08:00","level":"INFO","msg":"writer: started","stream_id":"ms5mq0r8"}
+{"time":"2026-06-02T10:55:29.725668048+08:00","level":"INFO","msg":"sender: started"}
+{"time":"2026-06-02T10:55:35.922858526+08:00","level":"INFO","msg":"filestream: sending request","total_files":0,"uploaded_len":1}
+{"time":"2026-06-02T10:55:36.23464715+08:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-06-02T10:55:50.923686274+08:00","level":"INFO","msg":"filestream: sending request","total_files":1,"events_offset":0,"events_lines":1,"uploaded_len":1}
+{"time":"2026-06-02T10:55:51.247905251+08:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-06-02T10:56:05.923670909+08:00","level":"INFO","msg":"filestream: sending request","total_files":1,"events_offset":1,"events_lines":1}
+{"time":"2026-06-02T10:56:06.439454869+08:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-06-02T10:56:20.923517794+08:00","level":"INFO","msg":"filestream: sending request","total_files":1,"events_offset":2,"events_lines":1}
+{"time":"2026-06-02T10:56:21.209753311+08:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-06-02T10:56:35.92333251+08:00","level":"INFO","msg":"filestream: sending request","total_files":1,"events_offset":3,"events_lines":1}
+{"time":"2026-06-02T10:56:36.277479944+08:00","level":"ERROR","msg":"api: HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/files/mingjiehu5-nanyang-technological-university-singapore/dinov3-blur-detection/ms5mq0r8/file_stream"}
+{"time":"2026-06-02T10:56:36.277531244+08:00","level":"ERROR+4","msg":"filestream: fatal error: filestream: failed to upload: 404 Not Found url=https://api.wandb.ai/files/mingjiehu5-nanyang-technological-university-singapore/dinov3-blur-detection/ms5mq0r8/file_stream: {\"error\":\"run dinov3-blur-detection/ms5mq0r8 not found while streaming file\"}"}
+{"time":"2026-06-02T10:56:50.374930184+08:00","level":"INFO","msg":"api: retrying HTTP error","status":409,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"run ms5mq0r8 was previously created and deleted; try a new run id\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2026-06-02T10:56:52.905979584+08:00","level":"INFO","msg":"api: retrying HTTP error","status":409,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"run ms5mq0r8 was previously created and deleted; try a new run id\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2026-06-02T10:56:55.385830867+08:00","level":"ERROR","msg":"api: HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2026-06-02T10:56:55.385910997+08:00","level":"ERROR","msg":"runfiles: CreateRunFiles returned error: returned error 404: {\"data\":{\"createRunFiles\":null},\"errors\":[{\"message\":\"run dinov3-blur-detection/ms5mq0r8 not found during createRunFiles\",\"path\":[\"createRunFiles\"]}]}"}
+{"time":"2026-06-02T10:56:57.560570468+08:00","level":"INFO","msg":"api: retrying HTTP error","status":409,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"run ms5mq0r8 was previously created and deleted; try a new run id\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}

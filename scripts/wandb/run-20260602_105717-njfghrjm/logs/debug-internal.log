@@ -1,0 +1,24 @@
+{"time":"2026-06-02T10:57:17.617494316+08:00","level":"INFO","msg":"wandb-core"}
+{"time":"2026-06-02T10:57:17.617648017+08:00","level":"INFO","msg":"stream: starting","core version":"0.27.0"}
+{"time":"2026-06-02T10:57:17.959695253+08:00","level":"INFO","msg":"stream: created new stream","id":"njfghrjm"}
+{"time":"2026-06-02T10:57:17.959741124+08:00","level":"INFO","msg":"handler: started"}
+{"time":"2026-06-02T10:57:17.959780584+08:00","level":"INFO","msg":"stream: started"}
+{"time":"2026-06-02T10:57:17.959786894+08:00","level":"INFO","msg":"writer: started","stream_id":"njfghrjm"}
+{"time":"2026-06-02T10:57:17.959802334+08:00","level":"INFO","msg":"sender: started"}
+{"time":"2026-06-02T10:57:23.961343524+08:00","level":"INFO","msg":"filestream: sending request","total_files":0,"uploaded_len":1}
+{"time":"2026-06-02T10:57:24.246722045+08:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-06-02T10:57:38.96232428+08:00","level":"INFO","msg":"filestream: sending request","total_files":1,"events_offset":0,"events_lines":1,"uploaded_len":1}
+{"time":"2026-06-02T10:57:39.283178438+08:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-06-02T10:57:53.962111763+08:00","level":"INFO","msg":"filestream: sending request","total_files":1,"events_offset":1,"events_lines":1}
+{"time":"2026-06-02T10:57:54.329010631+08:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-06-02T10:58:08.961591779+08:00","level":"INFO","msg":"filestream: sending request","total_files":1,"events_offset":2,"events_lines":1}
+{"time":"2026-06-02T10:58:09.358057777+08:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-06-02T10:58:23.961697401+08:00","level":"INFO","msg":"filestream: sending request","total_files":1,"events_offset":3,"events_lines":1}
+{"time":"2026-06-02T10:58:24.479720943+08:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-06-02T10:58:38.96197115+08:00","level":"INFO","msg":"filestream: sending request","total_files":1,"events_offset":4,"events_lines":1}
+{"time":"2026-06-02T10:58:39.311110671+08:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-06-02T10:58:53.962033158+08:00","level":"INFO","msg":"filestream: sending request","total_files":1,"events_offset":5,"events_lines":1}
+{"time":"2026-06-02T10:58:54.476140187+08:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-06-02T10:59:08.962198946+08:00","level":"INFO","msg":"filestream: sending request","total_files":1,"events_offset":6,"events_lines":1}
+{"time":"2026-06-02T10:59:09.297063632+08:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-06-02T10:59:22.369723533+08:00","level":"INFO","msg":"api: retrying HTTP error","status":409,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"run njfghrjm was previously created and deleted; try a new run id\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}
