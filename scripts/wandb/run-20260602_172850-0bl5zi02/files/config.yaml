@@ -1,0 +1,62 @@
+_wandb:
+    value:
+        cli_version: 0.27.0
+        e:
+            76oy8y8m4f4dr4q9g3wyt5txdlipscdy:
+                codePath: /home/vilota/mingjie/dinov3/scripts/dinov3_blur_detection_trainer_v5.ipynb
+                codePathLocal: dinov3_blur_detection_trainer_v5.ipynb
+                cpu_count: 8
+                cpu_count_logical: 16
+                cudaVersion: "13.3"
+                disk:
+                    /:
+                        total: "1142152196096"
+                        used: "289048559616"
+                email: mhu005@e.ntu.edu.sg
+                executable: /home/vilota/anaconda3/envs/dinov3/bin/python
+                git:
+                    commit: c0f595854dfd75dee6b64f696ffbe112441d706e
+                    remote: https://github.com/vilota-dev/dinov3.git
+                gpu: NVIDIA GeForce RTX 5060 Ti
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Blackwell
+                      cudaCores: 4608
+                      memoryTotal: "17103323136"
+                      name: NVIDIA GeForce RTX 5060 Ti
+                      uuid: GPU-a473b420-d023-c5fd-caf7-5579fe24290d
+                host: vilota
+                memory:
+                    total: "32700223488"
+                os: Linux-6.17.0-14-generic-x86_64-with-glibc2.39
+                program: /home/vilota/mingjie/dinov3/scripts/dinov3_blur_detection_trainer_v5.ipynb
+                python: CPython 3.11.15
+                root: /home/vilota/mingjie/dinov3/scripts
+                startedAt: "2026-06-02T09:28:50.055249Z"
+                writerId: 76oy8y8m4f4dr4q9g3wyt5txdlipscdy
+        m: []
+        python_version: 3.11.15
+        t:
+            "1":
+                - 1
+                - 5
+                - 41
+                - 53
+            "2":
+                - 1
+                - 5
+                - 41
+                - 53
+            "3":
+                - 1
+                - 2
+                - 13
+                - 16
+            "4": 3.11.15
+            "5": 0.27.0
+            "8":
+                - 1
+            "12": 0.27.0
+            "13": linux-x86_64
+architecture:
+    value: dinov3_vith16plus

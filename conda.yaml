@@ -20,4 +20,8 @@ dependencies:
     - torch 
     - torchvision 
     - torchmetrics
+    - opencv-python
+    - wandb
+    - seaborn
+    - matplotlib
     
