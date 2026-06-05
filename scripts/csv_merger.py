@@ -103,15 +103,15 @@ if not final_df.empty:
     print("\n" + "="*50)
     print(f"FILTERING: Removed {rows_removed} rows containing unlisted letters.")
     print(f"Remaining valid rows: {filtered_row_count}")
-    print("="*50)
+    print("="*50)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
 # ==========================================
 # 3. Map specific values to 'o' and 'n'
 # ==========================================
 if not final_df.empty:
     value_mapping = {
-        'xf': 'o',
-        'mf': 'o',
+        'xf': 'f',
+        'mf': 'f',
         'sf': 'o',
         'mn': 'n',
         'xn': 'n'
@@ -121,7 +121,7 @@ if not final_df.empty:
         final_df[col] = final_df[col].replace(value_mapping)
             
     print("\n" + "="*50)
-    print("Values remapped successfully ('xf', 'mf', 'sf' -> 'o' | 'mn', 'xn' -> 'n')!")
+    print("Values remapped successfully ('xf', 'mf'-> 'f' | 'sf'->'o' | 'mn', 'xn' -> 'n')!")
     print("="*50)
     
     remapped_filename = "/home/vilota/566-qa-2/merge/remapped_merged_dataset.csv"

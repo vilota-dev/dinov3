@@ -20,52 +20,66 @@ from dinov3.hub.backbones import dinov3_vith16plus, Weights
 # ==========================================
 # 1. CLASS MAPPINGS
 # ==========================================
-# Reverse the mapping to get the string label from the predicted integer ID
 ID_TO_LABEL = {
-    0: 'o',  # ok
-    1: 'sf', # slightly far
-    2: 'mf', # medium far
-    3: 'xf', # extremely far
-    4: 'sn', # slightly near
-    5: 'mn', # medium near
-    6: 'xn'  # extremely near
+    0: 'f',
+    1: 'o',   # ok
+    2: 'sn',  # slightly near
+    3: 'n'    # near
 }
 NUM_CLASSES = len(ID_TO_LABEL)
+OK_CLASS_INDEX = 1
 
 # ==========================================
 # 2. MODEL DEFINITION
 # ==========================================
 class ResidualBlock(nn.Module):
-    def __init__(self, input_dim):
+    def __init__(self, input_dim, output_dim):
         super().__init__()
         self.block = nn.Sequential(
-            nn.Linear(input_dim, input_dim),
-            nn.BatchNorm1d(input_dim),
+            nn.Linear(input_dim, output_dim),
+            nn.BatchNorm1d(output_dim),
             nn.ReLU(),
-            nn.Dropout(0.3)
+            nn.Dropout(0.3),
+            nn.Linear(output_dim, output_dim),
+            nn.BatchNorm1d(output_dim),
         )
 
+        self.shortcut = nn.Sequential(
+            nn.Linear(input_dim, output_dim),
+            nn.BatchNorm1d(output_dim),
+        )
+
+        self.relu = nn.ReLU()
+
     def forward(self, x):
-        return x + self.block(x)
+        return self.relu(self.block(x) + self.shortcut(x))
 
 
-class MaskedEdgeBlurDetector(nn.Module):
-    def __init__(self, backbone_name="dinov3_vith16plus", num_classes=7, weights_path=None):
+class BlurClassifier(nn.Module):
+    def __init__(self, backbone_name="dinov3_vith16plus", num_classes=NUM_CLASSES, weights_path=None):
         super().__init__()
-        
-        # Load the backbone
+
+        print(f"Loading DINOv3 Backbone: {backbone_name}...")
         weights_arg = weights_path if weights_path else Weights.LVD1689M
         self.backbone = dinov3_vith16plus(pretrained=True, weights=weights_arg)
-        
+
         embed_dim = self.backbone.embed_dim
-        linear_input_dim = 2 * embed_dim 
-        
-        # The trained linear head
-        self.linear_head = nn.Sequential(
-            nn.Linear(linear_input_dim, 1024),
-            nn.BatchNorm1d(1024),
+        linear_input_dim = 2 * embed_dim
+        laplacian_input_dim = 196
+
+        self.laplacian_projector = nn.Sequential(
+            nn.Linear(laplacian_input_dim, 128),
+            nn.BatchNorm1d(128),
             nn.ReLU(),
-            ResidualBlock(1024),
+        )
+
+        fused_input_dim = linear_input_dim + 128
+
+        self.classifier_head = nn.Sequential(
+            nn.Linear(fused_input_dim, 2048),
+            nn.BatchNorm1d(2048),
+            nn.ReLU(),
+            ResidualBlock(2048, 1024),
             nn.Linear(1024, 256),
             nn.BatchNorm1d(256),
             nn.ReLU(),
@@ -73,21 +87,32 @@ class MaskedEdgeBlurDetector(nn.Module):
             nn.Linear(256, num_classes) # Multi-class output
         )
 
-    def forward(self, x, patch_mask):
+    def forward(self, x, patch_mask, laplacian_tensor):
         features = self.backbone.forward_features(x)
-        cls_token = features["x_norm_clstoken"]       
-        patch_tokens = features["x_norm_patchtokens"] 
-        
+        cls_token = features["x_norm_clstoken"]
+        patch_tokens = features["x_norm_patchtokens"]
+
         mask_weights = patch_mask.float().unsqueeze(-1)
         weighted_patches = patch_tokens * mask_weights
-        
-        summed_patches = weighted_patches.sum(dim=1) 
+
+        summed_patches = weighted_patches.sum(dim=1)
         valid_patch_count = mask_weights.sum(dim=1) + 1e-6
-        masked_patch_mean = summed_patches / valid_patch_count 
-        
-        linear_input = torch.cat([cls_token, masked_patch_mean], dim=1) 
-        logits = self.linear_head(linear_input)
-        return logits 
+        masked_patch_mean = summed_patches / valid_patch_count
+
+        dino_feature = torch.cat([cls_token, masked_patch_mean], dim=1)
+
+        pooled_laplacian = F.avg_pool2d(laplacian_tensor, kernel_size=16, stride=16)
+        pooled_laplacian = F.adaptive_avg_pool2d(pooled_laplacian, (14, 14))
+        flat_laplacian = pooled_laplacian.view(pooled_laplacian.size(0), -1)
+        laplacian_features = self.laplacian_projector(flat_laplacian)
+
+        fused_input = torch.cat([dino_feature, laplacian_features], dim=1)
+
+        logits = self.classifier_head(fused_input)
+        return logits
+
+
+MaskedEdgeBlurDetector = BlurClassifier
 
 # ==========================================
 # 3. HELPER FUNCTIONS
@@ -111,6 +136,19 @@ def get_horizontal_patch_mask(image_path, image_size=224, patch_size=16, thresho
     
     return patch_mask_flat
 
+
+def get_laplacian_tensor(image_path):
+    pil_image = Image.open(image_path).convert("RGB")
+    gray_pixel_values = T.functional.rgb_to_grayscale(pil_image)
+    gray_tensor = T.functional.to_tensor(gray_pixel_values)
+
+    laplacian_kernel = torch.tensor([[[[0, 1, 0],
+                                       [0, -2, 0],
+                                       [0, 1, 0]]]], dtype=torch.float32)
+
+    laplacian_tensor = F.conv2d(gray_tensor.unsqueeze(0), laplacian_kernel, padding=1).squeeze(0)
+    return torch.abs(laplacian_tensor)
+
 def predict_image_high_precision(image_path, model, device, transform, OK_THRESHOLD=0.9):
     """
     Runs an image through the model. 
@@ -120,14 +158,14 @@ def predict_image_high_precision(image_path, model, device, transform, OK_THRESH
     pixel_values = transform(pil_image).unsqueeze(0).to(device)
     
     patch_mask = get_horizontal_patch_mask(image_path).unsqueeze(0).to(device)
+    laplacian_tensor = get_laplacian_tensor(image_path).unsqueeze(0).to(device)
     
     model.eval()
     with torch.no_grad():
-        logits = model(pixel_values, patch_mask)
+        logits = model(pixel_values, patch_mask, laplacian_tensor)
         probabilities = torch.softmax(logits, dim=1)[0] # Extract the first batch sample array
         
-    # Index 0 corresponds to 'o' (OK) based on the class map
-    ok_probability = probabilities[0].item()
+    ok_probability = probabilities[OK_CLASS_INDEX].item()
     
     # Check if the selection successfully meets your strict high-precision criteria
     if ok_probability >= OK_THRESHOLD:
@@ -135,10 +173,10 @@ def predict_image_high_precision(image_path, model, device, transform, OK_THRESH
         confidence = ok_probability
         action_required = "Pass (Confirmed OK)"
     else:
-        # If confidence falls below your gate threshold, find the most probable alternative defect category
-        defect_probs = probabilities[1:]
-        predicted_defect_idx = torch.argmax(defect_probs).item() + 1 # Add 1 to align with the global map index
-        
+        defect_indices = [idx for idx in range(NUM_CLASSES) if idx != OK_CLASS_INDEX]
+        defect_probs = probabilities[defect_indices]
+        predicted_defect_idx = defect_indices[torch.argmax(defect_probs).item()]
+
         final_prediction = ID_TO_LABEL[predicted_defect_idx]
         confidence = probabilities[predicted_defect_idx].item()
         action_required = "Review (Flagged for Double Check)"
@@ -154,10 +192,10 @@ if __name__ == "__main__":
     
     # --- Configuration Paths ---
     BASE_DINO_WEIGHTS = "/home/vilota/mingjie/dinov3/weights/dinov3_vith16plus_pretrain_lvd1689m-7c1da9a5.pth"
-    TRAINED_HEAD_WEIGHTS = "/home/vilota/mingjie/dinov3/scripts/v4_pth/dino_classifier_head_multiclass_epoch_30.pth"
+    TRAINED_HEAD_WEIGHTS = "/home/vilota/mingjie/dinov3/scripts/v5/dino_classifier_head_multiclass_epoch_58.pth"
     
     # Folder containing all the unseen images (can have nested subfolders)
-    UNSEEN_DIR = "/home/vilota/566-qa-2/618D/processed_images"
+    UNSEEN_DIR = "/home/vilota/566-qa-2/620D/processed_img"
     
     # Output CSV file path
     OUTPUT_CSV = "consolidated_batch_predictions.csv"
@@ -178,7 +216,7 @@ if __name__ == "__main__":
     # 2. Load Your Trained Classifier Head
     print(f"Loading trained head from {TRAINED_HEAD_WEIGHTS}...")
     try:
-        model.linear_head.load_state_dict(torch.load(TRAINED_HEAD_WEIGHTS, map_location=device))
+        model.classifier_head.load_state_dict(torch.load(TRAINED_HEAD_WEIGHTS, map_location=device))
         print("✓ Trained weights loaded successfully.\n")
     except Exception as e:
         print(f"✗ Failed to load weights: {e}")
